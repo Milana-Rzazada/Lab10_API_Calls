@@ -58,12 +58,12 @@ input, textarea {
   border-style: none;
 }
 
-.output, .message {
+#output, #message {
   margin-top: 20px;
   padding: 10px;
   background: #eef;
-  border-left: 5px solid #007bff;
   white-space: pre-wrap;
+  border: 2px solid blue;
 }
 }
 }

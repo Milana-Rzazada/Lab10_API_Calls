@@ -51,10 +51,10 @@ body {
   border-radius: 8px;
   border-style: none;
 }
-.container form .output, .container form .message {
+.container form #output, .container form #message {
   margin-top: 20px;
   padding: 10px;
   background: #eef;
-  border-left: 5px solid #007bff;
   white-space: pre-wrap;
+  border: 2px solid blue;
 }/*# sourceMappingURL=style.css.map */
