@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API CALLS</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Interacting with the API</h1>
+
+    <div class="buttons">
+        <button id="fetchbtn">Bring data by fetch()</button>
+        <button id="xhrbtn">Bring data by XHR</button>
+    </div>
+
+    <div id="output" class="output">
+
+    </div>
+    <h2>Add new Post</h2>
+    <form action="" id="postform">
+        <input type="text" id="posttitle" placeholder="Title" required>
+        <textarea name="post" id="postbody" placeholder="content" required></textarea>
+        <button type="submit">Send Post</button>
+    </form>
+
+    <h2>Edit Post</h2>
+    <form action="" id="putform">
+        <input type="number" id="putId" placeholder="Post's ID" required>
+        <input type="text" id="puttitle" placeholder="New Title" required>
+        <textarea name="body" id="putbody" placeholder="New content" required></textarea>
+        <button type="submit">Edit Post</button>
+    </form>
+    <div id="message" class="message">
+
+    </div>
+
+    <h2>Delete Post</h2>
+    <form action="" id="deleteform">
+        <input type="number" id="deleteId" placeholder="Enter Post's ID" required >
+        <button type="submit">Delete</button>
+    </form>
+</div>
+
+
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
