@@ -51,10 +51,13 @@ body {
   border-radius: 8px;
   border-style: none;
 }
-.container form #output, .container form #message {
+
+#message, #output {
   margin-top: 20px;
-  padding: 10px;
-  background: #eef;
+  padding: 15px;
+  background-color: #f0f8ff;
+  border-left: 5px solid #007bff;
   white-space: pre-wrap;
-  border: 2px solid blue;
+  min-height: 20px;
+  font-family: sans-serif;
 }/*# sourceMappingURL=style.css.map */
