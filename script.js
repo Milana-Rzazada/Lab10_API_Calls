@@ -118,3 +118,23 @@ postform.addEventListener("submit", (e) => {
     });
 });
 
+//PUT FORM
+putform.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const id = document.getElementById("putId").value.trim();
+    const title = document.getElementById("puttitle").value.trim();
+    const body = document.getElementById("putbody").value.trim();
+
+    let index = localPosts.findIndex(p => p.id == id && p.isLocal === true);
+    if (index === -1) {
+        message.innerText = "You can only edit posts you created.";
+        return;
+    }
+
+    localPosts[index].title = title;
+    localPosts[index].body = body;
+    localStorage.setItem("localPosts", JSON.stringify(localPosts));
+
+    message.innerText = `Post updated! ID: ${id}`;
+    putform.reset();
+});
