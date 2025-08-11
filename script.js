@@ -77,3 +77,44 @@ xhrbtn.addEventListener("click", () => {
     XHR.send();
 });
 
+
+// Last ID
+let lastLocalId = localStorage.getItem("lastLocalId") || 100;
+
+postform.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const title = document.getElementById("posttitle").value.trim();
+    const body = document.getElementById("postbody").value.trim();
+
+    if (!title || !body) {
+        message.innerText = "Please fill in both title and body.";
+        return;
+    }
+
+    // add ID
+    lastLocalId++;
+    localStorage.setItem("lastLocalId", lastLocalId);
+
+    fetch("https://jsonplaceholder.typicode.com/posts", {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({ title, body }),
+    })
+    .then(res => res.json())
+    .then(data => {
+        const newPost = {
+            id: lastLocalId, // ID
+            title: data.title,
+            body: data.body,
+            isLocal: true
+        };
+        localPosts.push(newPost);
+        localStorage.setItem("localPosts", JSON.stringify(localPosts));
+        message.innerText = `Post added! ID: ${newPost.id}`;
+        postform.reset();
+    })
+    .catch(err => {
+        message.innerText = `Error (POST): ${err.message}`;
+    });
+});
+
