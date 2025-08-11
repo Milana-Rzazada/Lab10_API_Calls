@@ -138,3 +138,22 @@ putform.addEventListener("submit", (e) => {
     message.innerText = `Post updated! ID: ${id}`;
     putform.reset();
 });
+
+
+//Delete form
+deleteform.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const id = document.getElementById("deleteId").value.trim();
+
+    let index = localPosts.findIndex(p => p.id == id && p.isLocal === true);
+    if (index === -1) {
+        message.innerText = "You can only delete posts you created.";
+        return;
+    }
+
+    localPosts.splice(index, 1);
+    localStorage.setItem("localPosts", JSON.stringify(localPosts));
+
+    message.innerText = `Post deleted! ID: ${id}`;
+    deleteform.reset();
+});
